@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Silverlight-Toolkit.DataForm.UIHint</id>
+    <version>5.0.0</version>
+    <authors>Chui Tey</authors>
+    <owners>Chui Tey</owners>
+    <licenseUrl>https://opensource.org/licenses/MS-PL</licenseUrl>
+    <projectUrl>https://github.com/teyc/Silverlight-Toolkit.DataForm.UIHint</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/teyc/Silverlight-Toolkit.DataForm.UIHint/master/icon.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Enables UIHint for Silverlight Toolkit</description>
+    <releaseNotes>First release. Supports ComboBox and CheckedListBox</releaseNotes>
+    <copyright>Copyright 2015</copyright>
+    <tags>Silverlight Toolkit</tags>
+    <dependencies>
+      <dependency id="Unofficial.SilverlightToolkit-Core" version="5.2011.11"  />
+      <dependency id="Unofficial.SilverlightToolkit-Data" version="5.2011.11"  />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin/Debug/Silverlight.DataForm.UIHint.*" target="lib/sl5/" />
+  </files>
+</package>
