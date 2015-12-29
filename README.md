@@ -5,7 +5,11 @@ This package provides support for UIHint attribute to be used with your Silverli
 
 Usage:
 
-    Add `please:Use.UiHint` to your DataForm
+Via NuGet Package Manager console run
+
+`> Install-Package Silverlight-Toolkit.DataForm.UIHint`
+
+Add `please:Use.UiHint` to your DataForm
 
         <toolkit:DataForm
             CommandButtonsVisibility="Commit,Cancel"
