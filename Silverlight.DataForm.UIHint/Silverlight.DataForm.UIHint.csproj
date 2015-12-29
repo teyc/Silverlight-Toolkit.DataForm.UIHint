@@ -73,6 +73,7 @@
     <Compile Include="Core\BindingExpressionParser.cs" />
     <Compile Include="Core\ControlParameterBinder.cs" />
     <Compile Include="GenerateControlBase.cs" />
+    <Compile Include="NullableItemConverter.cs" />
     <Compile Include="Use.cs" />
     <Compile Include="GenerateComboBox.cs" />
     <Compile Include="IGenerateControl.cs" />

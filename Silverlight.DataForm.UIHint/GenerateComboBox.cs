@@ -19,7 +19,18 @@ namespace Silverlight.DataForm.UIHint
             base.Bind(uiElement, uiHint, propInfo);
 
             uiElement.SetBinding(Selector.SelectedItemProperty,
-                new Binding(propInfo.Name) {Mode = BindingMode.TwoWay});
+                new Binding(propInfo.Name)
+                {
+                    Mode = BindingMode.TwoWay,
+                    Converter = new NullableItemConverter()
+                });
+
+            var comboBox = (ComboBox)uiElement;
+            if (comboBox.ItemContainerStyle == null)
+            {
+                comboBox.ItemContainerStyle = new Style() { TargetType = typeof(FrameworkElement) };
+            }
+            comboBox.ItemContainerStyle.Setters.Add(new Setter(FrameworkElement.MinHeightProperty, 20.0));
 
             return uiElement;
         }

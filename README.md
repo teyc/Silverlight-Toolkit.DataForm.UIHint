@@ -23,3 +23,4 @@ Next, annotate your properties like below
         "ItemsSourceProperty", "{Binding Equipments}",
         "DisplayMemberPath", "EquipmentName")]
     public Equipment SelectedEquipment { get; set; }
+
