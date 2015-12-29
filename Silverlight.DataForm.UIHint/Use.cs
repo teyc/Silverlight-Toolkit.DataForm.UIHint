@@ -1,10 +1,9 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace Prototyping
+namespace Silverlight.DataForm.UIHint
 {
-    public class DataFormExtension
+    public class Use
     {
 
         public static bool GetUiHint(DependencyObject obj)
@@ -18,12 +17,12 @@ namespace Prototyping
         }
 
         public static readonly DependencyProperty UiHintProperty =
-            DependencyProperty.RegisterAttached("UiHint", typeof(bool), typeof(DataForm), 
+            DependencyProperty.RegisterAttached("UiHint", typeof(bool), typeof(System.Windows.Controls.DataForm), 
                 new PropertyMetadata(false, OnUiHintChanged));
 
         private static void OnUiHintChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var dataForm = (DataForm)d;
+            var dataForm = (System.Windows.Controls.DataForm)d;
 
             if (e.NewValue != e.OldValue)
             {
@@ -41,7 +40,7 @@ namespace Prototyping
 
         private static void DataForm_AutoGeneratingField(object sender, DataFormAutoGeneratingFieldEventArgs eventArgs)
         {
-            var generator = new UIHintGenerator(eventArgs.PropertyName, eventArgs.PropertyType, (DataForm) sender);
+            var generator = new UIHintGenerator(eventArgs.PropertyName, eventArgs.PropertyType, (System.Windows.Controls.DataForm) sender);
             var control = generator.Generate();
             if (control != null)
             {

@@ -2,7 +2,7 @@
 using System.Windows.Data;
 using System.Windows.Markup;
 
-namespace Prototyping
+namespace Silverlight.DataForm.UIHint.Core
 {
     public class BindingExpressionParser
     {

@@ -11,7 +11,7 @@ using System.Windows;
 using System.Windows.Markup;
 using System.Windows.Media;
 
-namespace Prototyping
+namespace Silverlight.DataForm.UIHint.Core
 {
 
     /// <summary>

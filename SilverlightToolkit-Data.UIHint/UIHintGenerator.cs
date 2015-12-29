@@ -1,11 +1,8 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
 using System.Reflection;
 using System.Windows;
-using System.Windows.Controls;
 
-namespace Prototyping
+namespace SilverlightToolkit_Data.UIHint
 {
     public class UIHintGenerator : IGenerateControl
     {

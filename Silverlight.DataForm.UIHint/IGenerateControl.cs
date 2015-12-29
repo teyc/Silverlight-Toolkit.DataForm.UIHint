@@ -2,7 +2,7 @@
 using System.Reflection;
 using System.Windows;
 
-namespace Prototyping
+namespace Silverlight.DataForm.UIHint
 {
     public interface IGenerateControl
     {

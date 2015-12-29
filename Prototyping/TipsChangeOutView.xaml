@@ -7,7 +7,6 @@
              xmlns:prototyping="clr-namespace:Prototyping"
              mc:Ignorable="d"
              xmlns:c="http://www.caliburnproject.org"
-             xmlns:system="clr-namespace:System;assembly=mscorlib"
              d:DataContext="{prototyping:TipsChangeOutViewModel}"
              c:Bind.AtDesignTime="True"
              d:DesignHeight="300" d:DesignWidth="400">
@@ -36,8 +35,9 @@
             CommandButtonsVisibility="Commit,Cancel"
             CurrentItem="{Binding .}"
             Grid.Column="1"
-            Grid.Row="1" 
-            prototyping:DataFormExtension.UiHint="true"/>
+            Grid.Row="1"
+            xmlns:please="clr-namespace:Silverlight.DataForm.UIHint;assembly=Silverlight.DataForm.UIHint"
+            please:Use.UiHint="true" />
 
     </Grid>
 </UserControl>

@@ -4,7 +4,7 @@ using System.Reflection;
 using System.Windows;
 using System.Windows.Data;
 
-namespace Prototyping
+namespace Silverlight.DataForm.UIHint.Core
 {
     public class ControlParameterBinder
     {
