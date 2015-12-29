@@ -9,7 +9,7 @@
              xmlns:c="http://www.caliburnproject.org"
              d:DataContext="{prototyping:TipsChangeOutViewModel}"
              c:Bind.AtDesignTime="True"
-             d:DesignHeight="300" d:DesignWidth="400">
+             d:DesignHeight="400" d:DesignWidth="430.916">
     <UserControl.DataContext>
         <prototyping:TipsChangeOutViewModel />
     </UserControl.DataContext>

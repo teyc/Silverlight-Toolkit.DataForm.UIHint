@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows;
@@ -15,7 +16,7 @@ namespace Silverlight.DataForm.UIHint
                 new PropertyMetadata(null, DisplayMemberPathChanged));
 
         public static readonly DependencyProperty SelectedItemsProperty =
-            DependencyProperty.Register("SelectedItems", typeof (ICollection<object>), typeof (CheckedListBox),
+            DependencyProperty.Register("SelectedItems", typeof (IList), typeof (CheckedListBox),
                 new PropertyMetadata(null, SelectedItemsChanged));
 
         public static readonly DependencyProperty ItemsSourceProperty =
@@ -25,6 +26,7 @@ namespace Silverlight.DataForm.UIHint
         public CheckedListBox()
         {
             InitializeComponent();
+
         }
 
         public string DisplayMemberPath
@@ -33,9 +35,9 @@ namespace Silverlight.DataForm.UIHint
             set { SetValue(DisplayMemberPathProperty, value); }
         }
 
-        public ICollection<object> SelectedItems
+        public IList SelectedItems
         {
-            get { return (ICollection<object>) GetValue(SelectedItemsProperty); }
+            get { return (IList) GetValue(SelectedItemsProperty); }
             set { SetValue(SelectedItemsProperty, value); }
         }
 
@@ -55,7 +57,7 @@ namespace Silverlight.DataForm.UIHint
         private static void SelectedItemsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var checkedListBox = (CheckedListBox) d;
-            var newSelectedItems = (IEnumerable<object>) e.NewValue;
+            var newSelectedItems = (IList) e.NewValue;
 
             UpdateItemsSource(checkedListBox, checkedListBox.ItemsSource, newSelectedItems);
         }
@@ -69,7 +71,7 @@ namespace Silverlight.DataForm.UIHint
         }
 
         private static void UpdateItemsSource(CheckedListBox checkedListBox, IEnumerable<object> newItemsSource,
-            IEnumerable<object> newSelectedItems)
+            IList newSelectedItems)
         {
             var listBox = checkedListBox.listBox;
 
@@ -78,7 +80,7 @@ namespace Silverlight.DataForm.UIHint
                 .ForEach(x => x.PropertyChanged -= checkedListBox.SelectionChanged);
 
             listBox.ItemsSource = newItemsSource?.Select(item => new SelectedItemWrapper(
-                newSelectedItems != null && newSelectedItems.Contains(newItemsSource),
+                newSelectedItems != null && newSelectedItems.Cast<object>().Contains(item),
                 item))
                 .ToList();
             ;
@@ -96,8 +98,9 @@ namespace Silverlight.DataForm.UIHint
             listBox.ItemsSource
                 .Cast<SelectedItemWrapper>()
                 .Where(x => x.IsSelected)
+                .Select(x => x.Item)
                 .ToList()
-                .ForEach(SelectedItems.Add);
+                .ForEach(x => SelectedItems.Add(x));
         }
 
         private static DataTemplate CreateItemTemplate(string displayMemberPath)
@@ -108,7 +111,8 @@ namespace Silverlight.DataForm.UIHint
                         $@"
         <DataTemplate xmlns=""http://schemas.microsoft.com/winfx/2006/xaml/presentation"" >
             <CheckBox IsChecked=""{{Binding IsSelected, Mode=TwoWay}}"" 
-                      Content=""{{Binding Item.{displayMemberPath}, Mode=TwoWay}}"" />
+                      Content=""{{Binding Item.{
+                            displayMemberPath}, Mode=TwoWay}}"" />
         </DataTemplate> ");
         }
     }

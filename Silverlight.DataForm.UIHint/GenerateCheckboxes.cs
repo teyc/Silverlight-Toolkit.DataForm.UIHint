@@ -23,6 +23,8 @@ namespace Silverlight.DataForm.UIHint
                     Mode = BindingMode.TwoWay
                 });
 
+            uiElement.GetBindingExpression(CheckedListBox.SelectedItemsProperty).UpdateSource();
+
            return uiElement;
         }
     }

@@ -36,6 +36,20 @@ Let's take it apart and see what it means:
 
 3. The third line `"DisplayMemberPath", "EquipmentName"` assigns a string to `comboBox.DisplayMemberPath`
 
+List of CheckBoxes
+-------------------
+
+This example generates a list containing CheckBoxes
+
+        [Display(Name = "Any of these")]
+        [UIHint("Silverlight.DataForm.UIHint.GenerateCheckBoxes, Silverlight.DataForm.UIHint", "Silverlight",
+            "DisplayMemberPath", "ToppingName",
+            "ItemsSourceProperty", "{Binding Toppings}")]
+        public BindableCollection<Topping> SelectedToppings { get; set; }
+
+        [Display(AutoGenerateField = false)]
+        public BindableCollection<Topping> Toppings { get; set; }
+
 Other Helpers
 ---------------
 
@@ -58,4 +72,4 @@ In your constructor, you can load the NullableItemsSource with a list
         OptionalEquipments = new NullableItemsSource<Equipment>() {ItemsSource = Equipments};
     }
 
-    
+   
