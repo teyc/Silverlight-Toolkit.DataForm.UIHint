@@ -37,7 +37,6 @@
             Grid.Column="1"
             Grid.Row="1"
             xmlns:please="clr-namespace:Silverlight.DataForm.UIHint;assembly=Silverlight.DataForm.UIHint"
-            please:Use.UiHint="true" />
-
+            please:Use.UiHint="true" EditEnded="DataForm_EditEnded" />
     </Grid>
 </UserControl>

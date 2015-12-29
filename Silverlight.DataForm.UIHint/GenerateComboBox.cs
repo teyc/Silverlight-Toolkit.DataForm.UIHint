@@ -25,14 +25,18 @@ namespace Silverlight.DataForm.UIHint
                     Converter = new NullableItemConverter()
                 });
 
-            var comboBox = (ComboBox)uiElement;
-            if (comboBox.ItemContainerStyle == null)
-            {
-                comboBox.ItemContainerStyle = new Style() { TargetType = typeof(FrameworkElement) };
-            }
-            comboBox.ItemContainerStyle.Setters.Add(new Setter(FrameworkElement.MinHeightProperty, 20.0));
+            SetComboBoxItemMinHeight((ComboBox) uiElement);
 
             return uiElement;
+        }
+
+        private static void SetComboBoxItemMinHeight(ComboBox uiElement)
+        {
+            if (uiElement.ItemContainerStyle == null)
+            {
+                uiElement.ItemContainerStyle = new Style() {TargetType = typeof (FrameworkElement)};
+            }
+            uiElement.ItemContainerStyle.Setters.Add(new Setter(FrameworkElement.MinHeightProperty, 20.0));
         }
     }
 }

@@ -8,5 +8,10 @@ namespace Prototyping
         {
             InitializeComponent();
         }
+
+        private void DataForm_EditEnded(object sender, DataFormEditEndedEventArgs e)
+        {
+            var d = DataContext;
+        }
     }
 }

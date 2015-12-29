@@ -70,10 +70,15 @@
     <Reference Include="System.Windows.Browser" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckedListBox.xaml.cs">
+      <DependentUpon>CheckedListBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Core\BindingExpressionParser.cs" />
     <Compile Include="Core\ControlParameterBinder.cs" />
+    <Compile Include="GenerateCheckBoxes.cs" />
     <Compile Include="GenerateControlBase.cs" />
     <Compile Include="NullableItemConverter.cs" />
+    <Compile Include="SelectedItemWrapper.cs" />
     <Compile Include="Use.cs" />
     <Compile Include="GenerateComboBox.cs" />
     <Compile Include="IGenerateControl.cs" />
@@ -85,6 +90,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="CheckedListBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <ProjectExtensions>

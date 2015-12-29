@@ -106,6 +106,7 @@
       <DependentUpon>TipsChangeOutView.xaml</DependentUpon>
     </Compile>
     <Compile Include="TipsChangeOutViewModel.cs" />
+    <Compile Include="Topping.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
