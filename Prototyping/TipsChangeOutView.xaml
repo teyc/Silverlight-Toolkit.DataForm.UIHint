@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="Prototyping.TipsChangeOutView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+             xmlns:prototyping="clr-namespace:Prototyping"
+             mc:Ignorable="d"
+             xmlns:c="http://www.caliburnproject.org"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             d:DataContext="{prototyping:TipsChangeOutViewModel}"
+             c:Bind.AtDesignTime="True"
+             d:DesignHeight="300" d:DesignWidth="400">
+    <UserControl.DataContext>
+        <prototyping:TipsChangeOutViewModel />
+    </UserControl.DataContext>
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15*" />
+            <ColumnDefinition Width="174*" />
+            <ColumnDefinition Width="11*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="73*" />
+            <RowDefinition Height="7*" />
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="textBlock"
+                   Grid.Column="1"
+                   VerticalAlignment="Bottom"
+                   HorizontalAlignment="Left"
+                   TextWrapping="Wrap"
+                   Text="Tips changeout" Height="16" Width="84" />
+
+        <toolkit:DataForm
+            CommandButtonsVisibility="Commit,Cancel"
+            CurrentItem="{Binding .}"
+            Grid.Column="1"
+            Grid.Row="1" 
+            prototyping:DataFormExtension.UiHint="true"/>
+
+    </Grid>
+</UserControl>
