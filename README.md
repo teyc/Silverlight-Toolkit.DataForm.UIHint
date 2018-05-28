@@ -1,6 +1,8 @@
 Silverlight.DataForm.UIHint
 ------------------------------
 
+[![Build status](https://ci.appveyor.com/api/projects/status/3q0346wxjg2bxipu?svg=true)](https://ci.appveyor.com/project/teyc/silverlight-toolkit-dataform-uihint)
+
 This package provides support for UIHint attribute to be used with your Silverlight data forms
 
 Usage:
@@ -32,13 +34,31 @@ Let's take it apart and see what it means:
 
 1. The first parameter `"Silverlight.DataForm.UIHint.GenerateComboBox, Silverlight.DataForm.UIHint"`
    identifies the type of control that will be generated, and where the assembly is. Unfortunately,
-   just specifying "System.Windows.Controls.ComboxBox, System.Windows.Controls" doesn't work, assembly
+   just specifying "System.Windows.Controls.ComboxBox, System.Windows.Controls" doesn't work, as
    the control still needs to be data bound to the right fields.
 
 2. The second line `"ItemsSourceProperty", "{Binding Equipments}"` creates a data binding between
     the ItemsSource and the list of equipments that the user can select from.
 
 3. The third line `"DisplayMemberPath", "EquipmentName"` assigns a string to `comboBox.DisplayMemberPath`
+
+Predefined UiHits
+==========================
+
+1. Comboboxes
+
+2. List of CheckBoxes
+
+
+Combobox
+-------------------
+
+    [Display(Name = "Required Equipment")] 
+    [Required]
+    [UIHint("Silverlight.DataForm.UIHint.GenerateComboBox, Silverlight.DataForm.UIHint", "Silverlight", 
+        "ItemsSourceProperty", "{Binding Equipments}",
+        "DisplayMemberPath", "EquipmentName")]
+    public Equipment SelectedEquipment { get; set; }
 
 List of CheckBoxes
 -------------------
